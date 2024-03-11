@@ -49,3 +49,7 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24.5, 35.5)
 shape = SubResource("RectangleShape2D_ojn0o")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(25, 21)
+zoom = Vector2(5, 5)
