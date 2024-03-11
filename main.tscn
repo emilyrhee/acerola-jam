@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://jfp6x7lybqg2"]
+
+[ext_resource type="Texture2D" uid="uid://tl54oernrwfj" path="res://images/terrain.png" id="1_16oiq"]
+[ext_resource type="PackedScene" uid="uid://dkug78q76d0t8" path="res://player.tscn" id="2_lbfjv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_leis0"]
+texture = ExtResource("1_16oiq")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g1a72"]
+sources/0 = SubResource("TileSetAtlasSource_leis0")
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_g1a72")
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_lbfjv")]
+position = Vector2(13, 77)
