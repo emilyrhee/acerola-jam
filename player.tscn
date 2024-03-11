@@ -20,6 +20,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6popm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6popm")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_620uj")
@@ -45,6 +53,7 @@ script = ExtResource("1_6onmw")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_r5nfc")
 animation = &"walk"
+frame_progress = 0.507822
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24.5, 35.5)
