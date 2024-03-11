@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkug78q76d0t8"]
 
-[ext_resource type="Script" path="res://Player.cs" id="1_6onmw"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_6onmw"]
 [ext_resource type="Texture2D" uid="uid://db8p5hufba3n2" path="res://images/player.png" id="1_qgs0y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6popm"]
@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojn0o"]
-size = Vector2(7, 23)
+size = Vector2(9, 24)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6onmw")
@@ -56,11 +56,18 @@ animation = &"walk"
 frame_progress = 0.861601
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24.5, 35.5)
+position = Vector2(24.5, 36)
 shape = SubResource("RectangleShape2D_ojn0o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(25, 21)
 zoom = Vector2(4, 4)
+limit_left = 0
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_bottom_margin = 1.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(25, 37)
+target_position = Vector2(0, 19)
