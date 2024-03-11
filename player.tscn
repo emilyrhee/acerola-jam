@@ -53,7 +53,7 @@ script = ExtResource("1_6onmw")
 position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_r5nfc")
 animation = &"walk"
-frame_progress = 0.507822
+frame_progress = 0.861601
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24.5, 35.5)
@@ -61,4 +61,6 @@ shape = SubResource("RectangleShape2D_ojn0o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(25, 21)
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
+limit_smoothed = true
+position_smoothing_enabled = true
