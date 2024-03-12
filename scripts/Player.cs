@@ -32,16 +32,10 @@ public partial class Player : CharacterBody2D
 			animatedSprite.Play("walk");
 		}
 	}
-    private void Kill()
+    private void FallReset()
     {
-        GD.Print("ah shid");
-    }
-    public void _on_area_2d_body_entered(Node2D body)
-    {
-        if (body.Name == "Tomato")
-        {
-            Kill();
-        }
+        if (Position.Y > 120)
+        Position = new Vector2(119, 80);
     }
 	public override void _PhysicsProcess(double delta)
 	{
@@ -68,5 +62,6 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
         UpdateAnimatedSprite();
+        FallReset();
 	}
 }
