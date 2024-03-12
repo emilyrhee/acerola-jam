@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojn0o"]
-size = Vector2(9, 24)
+size = Vector2(11, 24)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6onmw")
@@ -67,7 +67,3 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 drag_bottom_margin = 1.0
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(25, 37)
-target_position = Vector2(0, 19)

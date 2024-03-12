@@ -32,6 +32,17 @@ public partial class Player : CharacterBody2D
 			animatedSprite.Play("walk");
 		}
 	}
+    private void Kill()
+    {
+        GD.Print("ah shid");
+    }
+    public void _on_area_2d_body_entered(Node2D body)
+    {
+        if (body.Name == "Tomato")
+        {
+            Kill();
+        }
+    }
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
