@@ -6,37 +6,37 @@ public partial class Player : CharacterBody2D
 	public const float Speed = 100.0f;
 	public const float JumpVelocity = -250.0f;
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-    private AnimatedSprite2D animatedSprite;
+	private AnimatedSprite2D animatedSprite;
 	public override void _Ready() {
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 	}
 
-    private void UpdateAnimatedSprite() {		
+	private void UpdateAnimatedSprite() {		
 		if (Velocity.Length() == 0) 
-        {
+		{
 			animatedSprite.Stop();
 		} 
-        else 
-        {
-            if (Velocity.X != 0) 
-            {
-                if (Velocity.X < 0) 
-                {
-                    animatedSprite.FlipH = true;
-                } 
-                else 
-                {
-                    animatedSprite.FlipH = false;
-                }
-            }
+		else 
+		{
+			if (Velocity.X != 0) 
+			{
+				if (Velocity.X < 0) 
+				{
+					animatedSprite.FlipH = true;
+				} 
+				else 
+				{
+					animatedSprite.FlipH = false;
+				}
+			}
 			animatedSprite.Play("walk");
 		}
 	}
-    private void FallReset()
-    {
-        if (Position.Y > 120)
-        Position = new Vector2(119, 80);
-    }
+	private void FallReset()
+	{
+		if (Position.Y > 120)
+		Position = new Vector2(119, 80);
+	}
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -61,7 +61,7 @@ public partial class Player : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
-        UpdateAnimatedSprite();
-        FallReset();
+		UpdateAnimatedSprite();
+		FallReset();
 	}
 }

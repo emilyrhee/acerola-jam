@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://csmagc2oe38ai"]
+
+[ext_resource type="Texture2D" uid="uid://bolfei85sujfw" path="res://images/log.png" id="1_r85jj"]
+[ext_resource type="Script" path="res://scripts/Log.cs" id="2_wcnqa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpkdb"]
+atlas = ExtResource("1_r85jj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg2kr"]
+atlas = ExtResource("1_r85jj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sql01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpkdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg2kr")
+}],
+"loop": true,
+"name": &"float",
+"speed": 1.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7fnu"]
+radius = 4.0
+height = 12.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_sql01")
+animation = &"float"
+frame_progress = 0.965559
+script = ExtResource("2_wcnqa")
+
+[node name="LogArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LogArea"]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l7fnu")
+
+[connection signal="body_entered" from="LogArea" to="." method="_on_log_area_body_entered"]

@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="acerola-jam"
-run/main_scene="res://level1.tscn"
+config/name="platformer"
+run/main_scene="res://scenes/level1.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 
 [dotnet]
