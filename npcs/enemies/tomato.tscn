@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://4h4n8a5imq8n"]
 
-[ext_resource type="Script" path="res://enemies/Tomato.cs" id="1_c658m"]
+[ext_resource type="Script" path="res://npcs/enemies/Tomato.cs" id="1_c658m"]
 [ext_resource type="Texture2D" uid="uid://m5kvsmltxcuy" path="res://assets/images/tomato.png" id="1_jct07"]
 [ext_resource type="AudioStream" uid="uid://c6r0cgikfipct" path="res://assets/audio/stomp.wav" id="3_ugt7p"]
 

@@ -14,6 +14,10 @@ config/name="platformer"
 run/main_scene="res://levels/level1.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 
+[autoload]
+
+Global="*res://Global.cs"
+
 [dotnet]
 
 project/assembly_name="acerola-jam"

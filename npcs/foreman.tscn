@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgkbr60snqsu"]
+
+[ext_resource type="Texture2D" uid="uid://bwwv76e6f0fka" path="res://assets/images/foreman.png" id="1_if2u1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lshw5"]
+atlas = ExtResource("1_if2u1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mosdr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lshw5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rodew"]
+size = Vector2(11, 26)
+
+[node name="Foreman" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 24)
+sprite_frames = SubResource("SpriteFrames_mosdr")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24.5, 35)
+shape = SubResource("RectangleShape2D_rodew")
