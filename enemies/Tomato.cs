@@ -25,8 +25,7 @@ public partial class Tomato : CharacterBody2D
 	{
 		QueueFree();
 	}
-	[Export]
-	private bool shouldMove = false;
+	[Export] private bool shouldMove = false;
 	private bool isMovingLeft = false;
 	public void Move()
 	{

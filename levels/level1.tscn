@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://jfp6x7lybqg2"]
+[gd_scene load_steps=10 format=3 uid="uid://jfp6x7lybqg2"]
 
 [ext_resource type="Script" path="res://levels/Level1.cs" id="1_wxxf5"]
 [ext_resource type="Texture2D" uid="uid://tl54oernrwfj" path="res://assets/images/terrain.png" id="2_bl2on"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4h4n8a5imq8n" path="res://enemies/tomato.tscn" id="4_ai60l"]
 [ext_resource type="AudioStream" uid="uid://bue0wuds1pvhm" path="res://assets/audio/level1.wav" id="5_i0o5c"]
 [ext_resource type="PackedScene" uid="uid://csmagc2oe38ai" path="res://collectables/log.tscn" id="6_56pog"]
+[ext_resource type="PackedScene" uid="uid://w48av2wte7b3" path="res://collectables/logcount.tscn" id="7_i4kp8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_leis0"]
 texture = ExtResource("2_bl2on")
@@ -149,7 +150,16 @@ position = Vector2(771, 84)
 stream = ExtResource("5_i0o5c")
 panning_strength = 0.0
 
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("6_56pog")]
+[node name="Log" parent="." instance=ExtResource("6_56pog")]
 position = Vector2(354, 120)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Logcount" parent="CanvasLayer" instance=ExtResource("7_i4kp8")]
+offset_left = 9.0
+offset_top = 8.0
+offset_right = -1108.0
+offset_bottom = -617.0
+scale = Vector2(2, 2)
 
 [connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
