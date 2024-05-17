@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jfp6x7lybqg2"]
+[gd_scene load_steps=14 format=3 uid="uid://jfp6x7lybqg2"]
 
 [ext_resource type="Script" path="res://levels/Level1.cs" id="1_wxxf5"]
 [ext_resource type="Texture2D" uid="uid://tl54oernrwfj" path="res://assets/images/terrain.png" id="2_bl2on"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://csmagc2oe38ai" path="res://collectables/log.tscn" id="6_56pog"]
 [ext_resource type="PackedScene" uid="uid://w48av2wte7b3" path="res://collectables/logcount.tscn" id="7_i4kp8"]
 [ext_resource type="PackedScene" uid="uid://bgkbr60snqsu" path="res://npcs/foreman.tscn" id="7_la0y8"]
+[ext_resource type="Script" path="res://npcs/CutsceneArea.cs" id="8_gh7gv"]
+[ext_resource type="FontFile" uid="uid://dc5kclrgap60t" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="9_025mg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_leis0"]
 texture = ExtResource("2_bl2on")
@@ -114,6 +116,9 @@ texture = ExtResource("2_bl2on")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_leis0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdngy"]
+size = Vector2(148, 72)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_wxxf5")
 
@@ -151,7 +156,29 @@ offset_bottom = -617.0
 scale = Vector2(2, 2)
 
 [node name="Foreman" parent="." instance=ExtResource("7_la0y8")]
-position = Vector2(1143, 64)
+position = Vector2(314, 80)
+
+[node name="CutsceneArea2" type="Area2D" parent="Foreman"]
+script = ExtResource("8_gh7gv")
+font = ExtResource("9_025mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreman/CutsceneArea2"]
+position = Vector2(4, 12)
+shape = SubResource("RectangleShape2D_rdngy")
+
+[node name="Dialog" type="RichTextLabel" parent="Foreman/CutsceneArea2"]
+anchors_preset = -1
+anchor_left = -0.28
+anchor_top = 0.651637
+anchor_right = -0.28
+anchor_bottom = 0.651637
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 61.0
+offset_bottom = 16.0
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Tomatoes" type="Node" parent="."]
 
@@ -175,3 +202,4 @@ position = Vector2(754, 100)
 position = Vector2(771, 84)
 
 [connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
+[connection signal="body_entered" from="Foreman/CutsceneArea2" to="Foreman/CutsceneArea2" method="_on_body_entered"]

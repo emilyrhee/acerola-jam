@@ -28,5 +28,5 @@ sprite_frames = SubResource("SpriteFrames_mosdr")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24.5, 35)
+position = Vector2(23.5, 35)
 shape = SubResource("RectangleShape2D_rodew")
