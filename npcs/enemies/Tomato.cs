@@ -65,9 +65,7 @@ public partial class Tomato : CharacterBody2D
 			sprite.QueueFree();
 
 			Vector2 newVelocity = body.Velocity;
-			const float jumpVelocity = Player.JumpVelocity;
-
-			newVelocity.Y = jumpVelocity;
+			newVelocity.Y = Player.jumpVelocity;
 			body.Velocity = newVelocity;
 		}
 	}
