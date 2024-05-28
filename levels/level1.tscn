@@ -156,7 +156,7 @@ offset_bottom = -617.0
 scale = Vector2(2, 2)
 
 [node name="Foreman" parent="." instance=ExtResource("7_la0y8")]
-position = Vector2(314, 80)
+position = Vector2(1121, 64)
 
 [node name="CutsceneArea2" type="Area2D" parent="Foreman"]
 script = ExtResource("8_gh7gv")
@@ -167,14 +167,9 @@ position = Vector2(4, 12)
 shape = SubResource("RectangleShape2D_rdngy")
 
 [node name="Dialog" type="RichTextLabel" parent="Foreman/CutsceneArea2"]
-anchors_preset = -1
-anchor_left = -0.28
-anchor_top = 0.651637
-anchor_right = -0.28
-anchor_bottom = 0.651637
 offset_left = -9.0
 offset_top = -8.0
-offset_right = 61.0
+offset_right = 78.0
 offset_bottom = 16.0
 scroll_active = false
 autowrap_mode = 0
@@ -203,3 +198,4 @@ position = Vector2(771, 84)
 
 [connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
 [connection signal="body_entered" from="Foreman/CutsceneArea2" to="Foreman/CutsceneArea2" method="_on_body_entered"]
+[connection signal="body_exited" from="Foreman/CutsceneArea2" to="Foreman/CutsceneArea2" method="_on_body_exited"]
