@@ -26,13 +26,10 @@ public partial class CutsceneArea : Area2D
         {
             dialog.AddText("Hello! How are you? ▶");
 
+            Player.speed = 0f;
+
             playerIsNearby = true;
         }
-    }
-    public void _on_body_exited(Node2D body)
-    {
-        playerIsNearby = false;
-        Player.jumpVelocity = -250.0f;
     }
     private async Task Sleep(int milliseconds)
     {
