@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class CutsceneArea : Area2D
 {
@@ -10,20 +11,21 @@ public partial class CutsceneArea : Area2D
 	{
         dialog = GetNode<RichTextLabel>("Dialog");
         dialog.PushFont(font);
-        dialog.PushFontSize(11);
+        dialog.PushFontSize(9);
 	}
     private void ResetTextTo(string text)
     {
         dialog.Clear();
         dialog.PushFont(font);
-        dialog.PushFontSize(11);
+        dialog.PushFontSize(9);
         dialog.AddText(text);
     }
-    public void _on_body_entered(Node2D body)
+    public void _on_body_entered(CharacterBody2D body)
     {
         if (body.Name == "Player")
         {
-            dialog.AddText("Hello! ▶");
+            dialog.AddText("Hello! How are you? ▶");
+
             playerIsNearby = true;
         }
     }
@@ -32,14 +34,18 @@ public partial class CutsceneArea : Area2D
         playerIsNearby = false;
         Player.jumpVelocity = -250.0f;
     }
-    public override void _Input(InputEvent @event)
+    private async Task Sleep(int milliseconds)
+    {
+        await Task.Delay(milliseconds);
+    }
+    public override async void _Input(InputEvent @event)
     {
         if (playerIsNearby && @event is InputEventKey eventKey && eventKey.Pressed)
         {
             if (Input.IsActionJustPressed("ui_accept"))
             {
-                Player.jumpVelocity = 0;
-                ResetTextTo("How are you?");
+                await Sleep(1000);
+                ResetTextTo("Me too. That meteor storm sure did a number on us.");
             }
         }
     }

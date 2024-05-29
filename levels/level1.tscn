@@ -117,7 +117,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_leis0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdngy"]
-size = Vector2(148, 72)
+size = Vector2(100, 72)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_wxxf5")
@@ -156,24 +156,23 @@ offset_bottom = -617.0
 scale = Vector2(2, 2)
 
 [node name="Foreman" parent="." instance=ExtResource("7_la0y8")]
-position = Vector2(1121, 64)
+position = Vector2(317, 80)
 
 [node name="CutsceneArea2" type="Area2D" parent="Foreman"]
 script = ExtResource("8_gh7gv")
 font = ExtResource("9_025mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreman/CutsceneArea2"]
-position = Vector2(4, 12)
+position = Vector2(28, 12)
 shape = SubResource("RectangleShape2D_rdngy")
 
 [node name="Dialog" type="RichTextLabel" parent="Foreman/CutsceneArea2"]
 offset_left = -9.0
-offset_top = -8.0
+offset_top = -18.0
 offset_right = 78.0
-offset_bottom = 16.0
+offset_bottom = 15.0
+fit_content = true
 scroll_active = false
-autowrap_mode = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="Tomatoes" type="Node" parent="."]
 

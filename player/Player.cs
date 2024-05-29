@@ -3,7 +3,7 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	public const float speed = 100.0f;
+	public const float speed = 95.0f;
 	public static float jumpVelocity = -250.0f;
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	private AnimatedSprite2D animatedSprite;
