@@ -9,12 +9,12 @@ public partial class CutsceneArea : Area2D
     [Export] Font font;
     private int dialogState = 0;
     
-	public override void _Ready()
-	{
+    public override void _Ready()
+    {
         dialog = GetNode<RichTextLabel>("Dialog");
         dialog.PushFont(font);
         dialog.PushFontSize(9);
-	}
+    }
     private void ResetTextTo(string text)
     {
         dialog.Clear();
