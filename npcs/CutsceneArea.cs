@@ -54,7 +54,12 @@ public partial class CutsceneArea : Area2D
                     ResetTextTo("It's been hard gathering resources.");
                     dialogState++;
                     break;
-                // Add more cases for additional dialog lines
+                case 2:
+                    Player.jumpVelocity = Global.playerJumpVelocity;
+                    await Sleep(1000);
+                    ResetTextTo("You've been collecting wood?! Would you have any to spare?");
+                    dialogState++;
+                    break;
                 default:
                     // Optionally handle the end of the dialog sequence
                     break;
