@@ -56,7 +56,7 @@ public partial class Player : CharacterBody2D
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (direction != Vector2.Zero)
 		{
-			velocity.X = direction.X * speed;
+		    Jump(ref velocity);
 		}
 		else
 		{
