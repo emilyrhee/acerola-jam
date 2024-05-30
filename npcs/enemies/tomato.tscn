@@ -8,10 +8,10 @@
 radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6bap"]
-size = Vector2(10, 7)
+size = Vector2(10, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ho6b"]
-size = Vector2(8, 4)
+size = Vector2(9, 3)
 
 [node name="Tomato" type="CharacterBody2D"]
 collision_mask = 2
@@ -28,14 +28,14 @@ shape = SubResource("CircleShape2D_s1kxd")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6, 8.5)
+position = Vector2(6, 8)
 shape = SubResource("RectangleShape2D_a6bap")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="StompDetector" type="Area2D" parent="."]
 
 [node name="StompShape" type="CollisionShape2D" parent="StompDetector"]
-position = Vector2(6, 3)
+position = Vector2(6, 2.5)
 shape = SubResource("RectangleShape2D_7ho6b")
 debug_color = Color(0, 0.6, 0.203922, 0.419608)
 

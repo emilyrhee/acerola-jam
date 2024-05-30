@@ -156,7 +156,7 @@ offset_bottom = -617.0
 scale = Vector2(2, 2)
 
 [node name="Foreman" parent="." instance=ExtResource("7_la0y8")]
-position = Vector2(317, 80)
+position = Vector2(1098, 64)
 
 [node name="CutsceneArea2" type="Area2D" parent="Foreman"]
 script = ExtResource("8_gh7gv")
@@ -173,6 +173,7 @@ offset_right = 78.0
 offset_bottom = 15.0
 fit_content = true
 scroll_active = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Tomatoes" type="Node" parent="."]
 

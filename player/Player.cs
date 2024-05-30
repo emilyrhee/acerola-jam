@@ -32,11 +32,15 @@ public partial class Player : CharacterBody2D
 			animatedSprite.Play("walk");
 		}
 	}
-	private void FallReset()
+	private bool isFalling()
 	{
-		if (Position.Y > 120)
-		Position = new Vector2(119, 80);
+        return Position.Y > 140;
 	}
+    public void Die()
+    {
+        Global.logsCollected = 0;
+        GetTree().ReloadCurrentScene();
+    }
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -62,6 +66,8 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
 		UpdateAnimatedSprite();
-		FallReset();
+
+		if (isFalling())
+            Die();
 	}
 }
