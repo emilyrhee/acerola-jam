@@ -19,14 +19,14 @@ public partial class CutsceneArea : Area2D
     {
         dialog.Clear();
         dialog.PushFont(font);
-        dialog.PushFontSize(9);
+        dialog.PushFontSize(8);
         dialog.AddText(text);
     }
     public void _on_body_entered(CharacterBody2D body)
     {
         if (body.Name == "Player")
         {
-            dialog.AddText("Hello! How are you? ▶");
+            dialog.AddText("Hello! How are you?");
 
             Player.speed = 0f;
 
@@ -51,7 +51,7 @@ public partial class CutsceneArea : Area2D
                 case 1:
                     Player.jumpVelocity = 0;
                     await Sleep(500);
-                    ResetTextTo("It's been hard gathering resources.");
+                    ResetTextTo("It's been hard gathering resources for my crew to build bridges.");
                     dialogState++;
                     break;
                 case 2:
@@ -61,7 +61,11 @@ public partial class CutsceneArea : Area2D
                     dialogState++;
                     break;
                 default:
-                    // Optionally handle the end of the dialog sequence
+                    Player.isNodding = true;
+                    Player.jumpVelocity = 0;
+                    await Sleep(1000);
+                    Player.isNodding = false;
+                    ResetTextTo("Thanks a lot! My crew will get to building immediately!");
                     break;
             }
         }
