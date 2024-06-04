@@ -10,12 +10,14 @@ public partial class Tomato : CharacterBody2D
 	[Export] private int rightBound;
 
 	private AudioStreamPlayer2D stompSound;
+    private Area2D deathArea;
 
 	private Sprite2D sprite;
 
 	public override void _Ready() 
 	{
 		stompSound = GetNode<AudioStreamPlayer2D>("StompSound");
+        deathArea = GetNode<Area2D>("DeathArea");
 		sprite = GetNode<Sprite2D>("Sprite2D");
 	}
 
@@ -67,6 +69,7 @@ public partial class Tomato : CharacterBody2D
 		{
 			stompSound.Play();
 
+            deathArea.QueueFree();
 			sprite.QueueFree();
 
 			Vector2 newVelocity = body.Velocity;
