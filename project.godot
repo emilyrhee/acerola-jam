@@ -43,7 +43,13 @@ ui_right={
 
 [layer_names]
 
+2d_physics/layer_1="Environment"
 2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Player"
+2d_physics/layer_4="Death Area"
+2d_physics/layer_5="Stomp Area"
+2d_physics/layer_6="Collectables"
+2d_physics/layer_7="Cutscene Area"
 
 [rendering]
 

@@ -21,11 +21,13 @@ public partial class Tomato : CharacterBody2D
 		sprite = GetNode<Sprite2D>("Sprite2D");
 	}
 
-	public void _on_area_2d_body_entered(Player player)
-	{
-        player.Die();
-	}
-
+    public void _on_death_area_2d_body_entered(Node2D node)
+    {
+        if (node is Player player) // argument MUST be a Node2D, hence the node type MUST be checked
+        {
+            player.CallDeferred("Die");
+        }
+    }
 	public void _on_stomp_sound_finished()
 	{
 		QueueFree();
@@ -64,19 +66,20 @@ public partial class Tomato : CharacterBody2D
 		Velocity = velocity;
 	}
 
-	public void _on_stomp_detector_body_entered(CharacterBody2D body) {
-		if (body.Name == "Player")
-		{
-			stompSound.Play();
+    public void _on_stomp_detector_body_entered(Node2D body)
+    {
+        if (body is Player player)
+        {
+            stompSound.Play();
 
             deathArea.QueueFree();
-			sprite.QueueFree();
+            sprite.QueueFree();
 
-			Vector2 newVelocity = body.Velocity;
-			newVelocity.Y = Player.jumpVelocity;
-			body.Velocity = newVelocity;
-		}
-	}
+            Vector2 newVelocity = player.Velocity;
+            newVelocity.Y = Player.jumpVelocity;
+            player.Velocity = newVelocity;
+        }
+    }
     
 	public override void _PhysicsProcess(double delta)
 	{

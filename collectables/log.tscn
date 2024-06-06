@@ -37,6 +37,8 @@ frame_progress = 0.965559
 script = ExtResource("2_wcnqa")
 
 [node name="LogArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LogArea"]
 position = Vector2(0, 4)

@@ -26,6 +26,8 @@ position = Vector2(6, 8)
 shape = SubResource("CircleShape2D_s1kxd")
 
 [node name="DeathArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathArea"]
 position = Vector2(6, 8)
@@ -33,6 +35,8 @@ shape = SubResource("RectangleShape2D_a6bap")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="StompDetector" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
 
 [node name="StompShape" type="CollisionShape2D" parent="StompDetector"]
 position = Vector2(6, 2.5)
@@ -42,6 +46,6 @@ debug_color = Color(0, 0.6, 0.203922, 0.419608)
 [node name="StompSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ugt7p")
 
-[connection signal="body_entered" from="DeathArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_2d_body_entered"]
 [connection signal="body_entered" from="StompDetector" to="." method="_on_stomp_detector_body_entered"]
 [connection signal="finished" from="StompSound" to="." method="_on_stomp_sound_finished"]

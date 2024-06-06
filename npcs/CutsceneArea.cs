@@ -22,9 +22,9 @@ public partial class CutsceneArea : Area2D
         dialog.PushFontSize(8);
         dialog.AddText(text);
     }
-    public void _on_body_entered(CharacterBody2D body)
+    public void _on_body_entered(Node2D body)
     {
-        if (body.Name == "Player")
+        if (body is Player player) // argument MUST be a Node2D, hence the node type MUST be checked
         {
             dialog.AddText("Hello! How are you?");
 

@@ -114,6 +114,7 @@ texture = ExtResource("2_bl2on")
 
 [sub_resource type="TileSet" id="TileSet_g1a72"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_leis0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdngy"]
@@ -168,9 +169,11 @@ offset_bottom = -617.0
 scale = Vector2(2, 2)
 
 [node name="Foreman" parent="." instance=ExtResource("7_la0y8")]
-position = Vector2(1677, 64)
+position = Vector2(1676, 64)
 
 [node name="CutsceneArea2" type="Area2D" parent="Foreman"]
+collision_layer = 64
+collision_mask = 4
 script = ExtResource("8_gh7gv")
 font = ExtResource("9_025mg")
 
