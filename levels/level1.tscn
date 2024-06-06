@@ -138,27 +138,6 @@ position = Vector2(110, 80)
 stream = ExtResource("5_i0o5c")
 panning_strength = 0.0
 
-[node name="Log" parent="." instance=ExtResource("6_56pog")]
-position = Vector2(354, 120)
-
-[node name="Log2" parent="." instance=ExtResource("6_56pog")]
-position = Vector2(416, 120)
-
-[node name="Log3" parent="." instance=ExtResource("6_56pog")]
-position = Vector2(681, 120)
-
-[node name="Log4" parent="." instance=ExtResource("6_56pog")]
-position = Vector2(832, 72)
-
-[node name="Log5" parent="." instance=ExtResource("6_56pog")]
-position = Vector2(1211, 104)
-
-[node name="Log6" parent="." instance=ExtResource("6_56pog")]
-position = Vector2(1269, 104)
-
-[node name="Log7" parent="." instance=ExtResource("6_56pog")]
-position = Vector2(1333, 104)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Logcount" parent="CanvasLayer" instance=ExtResource("7_i4kp8")]
@@ -240,6 +219,29 @@ shouldMove = true
 
 [node name="Tomato11" parent="Tomatoes" instance=ExtResource("4_ai60l")]
 position = Vector2(1462, 36)
+
+[node name="Logs" type="Node" parent="."]
+
+[node name="Log" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(354, 120)
+
+[node name="Log2" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(416, 120)
+
+[node name="Log3" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(681, 120)
+
+[node name="Log4" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(832, 72)
+
+[node name="Log5" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(1211, 104)
+
+[node name="Log6" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(1269, 104)
+
+[node name="Log7" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(1333, 104)
 
 [connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
 [connection signal="body_entered" from="Foreman/CutsceneArea2" to="Foreman/CutsceneArea2" method="_on_body_entered"]
