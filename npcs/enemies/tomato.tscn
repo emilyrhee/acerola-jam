@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://m5kvsmltxcuy" path="res://assets/images/tomato.png" id="1_jct07"]
 [ext_resource type="AudioStream" uid="uid://c6r0cgikfipct" path="res://assets/audio/stomp.wav" id="3_ugt7p"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s1kxd"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_os4px"]
+size = Vector2(9, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6bap"]
 size = Vector2(10, 8)
@@ -22,8 +22,8 @@ position = Vector2(6, 6)
 texture = ExtResource("1_jct07")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 8)
-shape = SubResource("CircleShape2D_s1kxd")
+position = Vector2(6, 4.5)
+shape = SubResource("RectangleShape2D_os4px")
 
 [node name="DeathArea" type="Area2D" parent="."]
 collision_layer = 8

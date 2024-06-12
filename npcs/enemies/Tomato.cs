@@ -11,6 +11,8 @@ public partial class Tomato : CharacterBody2D
 
 	private AudioStreamPlayer2D stompSound;
     private Area2D deathArea;
+    private Area2D stompArea;
+    private CollisionShape2D shape;
 
 	private Sprite2D sprite;
 
@@ -18,6 +20,8 @@ public partial class Tomato : CharacterBody2D
 	{
 		stompSound = GetNode<AudioStreamPlayer2D>("StompSound");
         deathArea = GetNode<Area2D>("DeathArea");
+        stompArea = GetNode<Area2D>("StompDetector");
+        shape = GetNode<CollisionShape2D>("CollisionShape2D");
 		sprite = GetNode<Sprite2D>("Sprite2D");
 	}
 
@@ -73,6 +77,8 @@ public partial class Tomato : CharacterBody2D
             stompSound.Play();
 
             deathArea.QueueFree();
+            stompArea.QueueFree();
+            shape.QueueFree();
             sprite.QueueFree();
 
             Vector2 newVelocity = player.Velocity;
