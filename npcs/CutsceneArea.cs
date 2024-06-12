@@ -24,7 +24,7 @@ public partial class CutsceneArea : Area2D
     }
     public void _on_body_entered(Node2D body)
     {
-        if (body is Player player) // argument MUST be a Node2D, hence the node type MUST be checked
+        if (body is Player) // argument MUST be a Node2D, hence the node type MUST be checked
         {
             dialog.AddText("Hello! How are you?");
 
