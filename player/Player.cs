@@ -3,17 +3,19 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	public static float speed = Global.playerSpeed;
-	public static float jumpVelocity = -250.0f;
-	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-	private AnimatedSprite2D animatedSprite;
+    public static float speed = Global.playerSpeed;
+    public static float jumpVelocity = -250.0f;
+    public float acceleration = 675.0f; // Adjust the acceleration value as needed
+    public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+    private AnimatedSprite2D animatedSprite;
     public static bool isNodding = false;
 
-	public override void _Ready() {
-		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-	}
+    public override void _Ready()
+    {
+        animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+    }
 
-	private void Animate() 
+    private void Animate()
     {
         if (isNodding)
         {
@@ -33,46 +35,53 @@ public partial class Player : CharacterBody2D
         }
 
         animatedSprite.Play("walk");
-	}
-	private bool isFalling()
-	{
+    }
+
+    private bool isFalling()
+    {
         return Position.Y > 140;
-	}
+    }
+
     public void Die()
     {
         Global.logsCollected = 0;
         GetTree().ReloadCurrentScene();
     }
-    
+
     public static void Jump(ref Vector2 velocity)
     {
         velocity.Y = jumpVelocity;
     }
-	public override void _PhysicsProcess(double delta)
-	{
-		Vector2 velocity = Velocity;
-		// Add the gravity.
-		if (!IsOnFloor())
-			velocity.Y += gravity * (float)delta;
 
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		    Jump(ref velocity);
+    public override void _PhysicsProcess(double delta)
+    {
+        Vector2 velocity = Velocity;
+        // Add the gravity.
+        if (!IsOnFloor())
+            velocity.Y += gravity * (float)delta;
 
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
-		{
-			velocity.X = direction.X * speed;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
-		}
-		Velocity = velocity;
-		MoveAndSlide();
+        if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+            Jump(ref velocity);
 
-		Animate();
+        Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+        if (direction != Vector2.Zero)
+        {
+            // Apply acceleration
+            velocity.X += direction.X * acceleration * (float)delta;
+            // Limit the velocity toGlobal.playerSpeed 
+            velocity.X = Mathf.Clamp(velocity.X, -Global.playerSpeed, Global.playerSpeed);
+        }
+        else
+        {
+            // Decelerate if no input
+            velocity.X = Mathf.MoveToward(Velocity.X, 0, acceleration * (float)delta);
+        }
+        Velocity = velocity;
+        MoveAndSlide();
 
-		if (isFalling())
+        Animate();
+
+        if (isFalling())
             Die();
-	}
+    }
 }
