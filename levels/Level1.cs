@@ -4,10 +4,10 @@ using System;
 public partial class Level1 : Node2D
 {
     private RichTextLabel logLabel;
-	private AudioStreamPlayer2D music;
+	private AudioStreamPlayer music;
 	public override void _Ready()
 	{
-		music = GetNode<AudioStreamPlayer2D>("BackgroundMusic");
+		music = GetNode<AudioStreamPlayer>("BackgroundMusic");
 		music.Playing = true;
         
 		logLabel = GetNode<RichTextLabel>("CanvasLayer/Logcount/Count");

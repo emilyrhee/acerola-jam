@@ -86,5 +86,6 @@ zoom = Vector2(4, 4)
 limit_left = 0
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+position_smoothing_speed = 11.0
+rotation_smoothing_speed = 50.0
 drag_bottom_margin = 1.0
