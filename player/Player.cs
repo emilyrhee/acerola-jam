@@ -55,10 +55,11 @@ public partial class Player : CharacterBody2D
     {
         velocity.Y = jumpVelocity;
     }
+
     public override void _PhysicsProcess(double delta)
     {
         Vector2 velocity = Velocity;
-        
+
         // Apply gravity
         if (!IsOnFloor())
         {
@@ -94,10 +95,9 @@ public partial class Player : CharacterBody2D
         }
         else
         {
-            // Apply friction to smooth out horizontal movement
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, acceleration * (float)delta);
+            velocity.X = 0; // no deceleration
         }
-        
+
         Velocity = velocity;
         MoveAndSlide();
 
