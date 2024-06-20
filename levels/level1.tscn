@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://bue0wuds1pvhm" path="res://assets/audio/level1.wav" id="5_i0o5c"]
 [ext_resource type="PackedScene" uid="uid://csmagc2oe38ai" path="res://collectables/log.tscn" id="6_56pog"]
 [ext_resource type="PackedScene" uid="uid://w48av2wte7b3" path="res://collectables/logcount.tscn" id="7_i4kp8"]
-[ext_resource type="PackedScene" uid="uid://bgkbr60snqsu" path="res://npcs/foreman.tscn" id="7_la0y8"]
-[ext_resource type="Script" path="res://npcs/CutsceneArea.cs" id="8_gh7gv"]
+[ext_resource type="PackedScene" uid="uid://bgkbr60snqsu" path="res://npcs/foreman/foreman.tscn" id="7_la0y8"]
+[ext_resource type="Script" path="res://npcs/foreman/CutsceneArea.cs" id="8_gh7gv"]
 [ext_resource type="FontFile" uid="uid://dc5kclrgap60t" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="9_025mg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_leis0"]

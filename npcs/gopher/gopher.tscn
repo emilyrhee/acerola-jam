@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://cjl3e5wkc7rrv"]
+
+[ext_resource type="Texture2D" uid="uid://ohc5ly3df12i" path="res://assets/images/gopher.png" id="1_um8we"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4esxs"]
+atlas = ExtResource("1_um8we")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl7dl"]
+atlas = ExtResource("1_um8we")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i28fp"]
+atlas = ExtResource("1_um8we")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpuil"]
+atlas = ExtResource("1_um8we")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vdq5"]
+atlas = ExtResource("1_um8we")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6eqv"]
+atlas = ExtResource("1_um8we")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpa5b"]
+atlas = ExtResource("1_um8we")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h7rs"]
+atlas = ExtResource("1_um8we")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbp0j"]
+atlas = ExtResource("1_um8we")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r34ms"]
+atlas = ExtResource("1_um8we")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0na8"]
+atlas = ExtResource("1_um8we")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u3q7"]
+atlas = ExtResource("1_um8we")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bijy"]
+atlas = ExtResource("1_um8we")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mder6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4esxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl7dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i28fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpuil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vdq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6eqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpa5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h7rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbp0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r34ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0na8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u3q7")
+}],
+"loop": false,
+"name": &"duck",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bijy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Gopher" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mder6")
+animation = &"duck"
