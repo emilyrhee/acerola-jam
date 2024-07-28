@@ -21,7 +21,7 @@ public partial class WalkTutorialArea : Area2D
     {
         if (body is Player) // argument MUST be a Node2D, hence the node type MUST be checked
         {
-            ResetTextTo("Use WASD or arrow keys to move.");
+            ResetTextTo("Use WASD or arrow keys + spacebar to move.");
         }
     }
 

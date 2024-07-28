@@ -29,21 +29,21 @@ public partial class CutsceneArea : Area2D
             dialog.AddText("Hello! How are you?");
 
             Player.speed = 0f;
-
-            playerIsNearby = true;
         }
     }
     private async Task Sleep(int milliseconds)
     {
         await Task.Delay(milliseconds);
     }
+    private float smolJump = -150.0f;
     public override async void _Input(InputEvent @event)
     {
-        if (playerIsNearby && @event is InputEventKey eventKey && eventKey.Pressed && Input.IsActionJustPressed("ui_accept"))
+        if (@event is InputEventKey eventKey && eventKey.Pressed && Input.IsActionJustPressed("ui_accept"))
         {
             switch (dialogState)
             {
                 case 0:
+                    Player.jumpVelocity = smolJump;
                     await Sleep(1000);
                     ResetTextTo("Me too. That meteor storm sure did a number on us.");
                     dialogState++;
@@ -55,7 +55,7 @@ public partial class CutsceneArea : Area2D
                     dialogState++;
                     break;
                 case 2:
-                    Player.jumpVelocity = Global.playerJumpVelocity;
+                    Player.jumpVelocity = smolJump;
                     await Sleep(1000);
                     ResetTextTo("You've been collecting wood?! Would you have any to spare?");
                     dialogState++;
