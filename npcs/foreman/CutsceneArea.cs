@@ -29,6 +29,8 @@ public partial class CutsceneArea : Area2D
             dialog.AddText("Hello! How are you?");
 
             Player.speed = 0f;
+
+            playerIsNearby = true;
         }
     }
     private async Task Sleep(int milliseconds)
@@ -38,7 +40,7 @@ public partial class CutsceneArea : Area2D
     private float smolJump = -150.0f;
     public override async void _Input(InputEvent @event)
     {
-        if (@event is InputEventKey eventKey && eventKey.Pressed && Input.IsActionJustPressed("ui_accept"))
+        if (playerIsNearby && @event is InputEventKey eventKey && eventKey.Pressed && Input.IsActionJustPressed("ui_accept"))
         {
             switch (dialogState)
             {
