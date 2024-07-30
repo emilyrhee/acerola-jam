@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jfp6x7lybqg2"]
+[gd_scene load_steps=18 format=3 uid="uid://jfp6x7lybqg2"]
 
 [ext_resource type="Script" path="res://levels/Level1.cs" id="1_wxxf5"]
 [ext_resource type="Texture2D" uid="uid://tl54oernrwfj" path="res://assets/images/terrain.png" id="2_bl2on"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://dc5kclrgap60t" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="9_025mg"]
 [ext_resource type="PackedScene" uid="uid://cjl3e5wkc7rrv" path="res://npcs/gopher/gopher.tscn" id="11_1f3xt"]
 [ext_resource type="Script" path="res://npcs/gopher/WalkTutorialArea.cs" id="12_mrexl"]
+[ext_resource type="PackedScene" uid="uid://dnq7yj7bx5dc2" path="res://menu/settings.tscn" id="13_tth7p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_leis0"]
 texture = ExtResource("2_bl2on")
@@ -164,6 +165,9 @@ stream = ExtResource("5_i0o5c")
 volume_db = -25.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("13_tth7p")]
+position = Vector2(187, 43)
 
 [node name="Logcount" parent="CanvasLayer" instance=ExtResource("7_i4kp8")]
 offset_left = 9.0

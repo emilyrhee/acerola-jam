@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnq7yj7bx5dc2"]
+
+[ext_resource type="Script" path="res://menu/Settings.cs" id="1_tb6fi"]
+
+[node name="Settings" type="Node2D"]
+visible = false
+script = ExtResource("1_tb6fi")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 90.0
+offset_bottom = 40.0
+text = "volume"
