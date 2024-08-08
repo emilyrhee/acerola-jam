@@ -5,16 +5,17 @@
 [ext_resource type="AudioStream" uid="uid://c6r0cgikfipct" path="res://assets/audio/stomp.wav" id="3_ugt7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_os4px"]
-size = Vector2(9, 1)
+size = Vector2(8, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6bap"]
-size = Vector2(12, 8)
+size = Vector2(10, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ho6b"]
-size = Vector2(9, 2)
+size = Vector2(8, 2)
 
 [node name="Tomato" type="CharacterBody2D"]
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_c658m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,11 +27,12 @@ position = Vector2(6, 3.5)
 shape = SubResource("RectangleShape2D_os4px")
 
 [node name="DeathArea" type="Area2D" parent="."]
+position = Vector2(1, 0)
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2(6, 8)
+[node name="DeathShape" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(5, 8)
 shape = SubResource("RectangleShape2D_a6bap")
 debug_color = Color(0, 0, 0, 0.419608)
 

@@ -3,7 +3,7 @@ using System;
 
 public partial class Log : AnimatedSprite2D
 {
-    private RichTextLabel logLabel;
+    private static RichTextLabel logLabel;
 
 	public override void _Ready() {
         logLabel = GetNode<RichTextLabel>("../../CanvasLayer/Logcount/Count");
@@ -13,11 +13,17 @@ public partial class Log : AnimatedSprite2D
 		if (body is Player player) // argument MUST be a Node2D, hence the node type MUST be checked
 		{
             Global.logsCollected++;
-            logLabel.Clear();
-            logLabel.AddText(Global.logsCollected.ToString());  
+            UpdateLogLabel();
 			QueueFree();
 		}
 	}
+
+    public static void UpdateLogLabel() {
+        if (logLabel != null) {
+            logLabel.Clear();
+            logLabel.AddText(Global.logsCollected.ToString());
+        }
+    }
 	public override void _Process(double delta)
 	{
 		Play("float");

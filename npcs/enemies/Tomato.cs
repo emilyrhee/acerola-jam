@@ -13,23 +13,42 @@ public partial class Tomato : CharacterBody2D
     private Area2D deathArea;
     private Area2D stompArea;
     private CollisionShape2D shape;
+    private CollisionShape2D stompShape;
+    private CollisionShape2D deathShape;
 
 	private Sprite2D sprite;
 
 	public override void _Ready() 
 	{
 		stompSound = GetNode<AudioStreamPlayer2D>("StompSound");
+        deathShape = GetNode<CollisionShape2D>("DeathArea/DeathShape");
         deathArea = GetNode<Area2D>("DeathArea");
         stompArea = GetNode<Area2D>("StompDetector");
+        stompShape = GetNode<CollisionShape2D>("StompDetector/StompShape");
         shape = GetNode<CollisionShape2D>("CollisionShape2D");
 		sprite = GetNode<Sprite2D>("Sprite2D");
 	}
 
+    private void DisableShapes()
+    {
+        deathShape.Disabled = true;
+        stompShape.Disabled = true;
+    }
+
     public void _on_death_area_2d_body_entered(Node2D node)
     {
-        if (node is Player player) // argument MUST be a Node2D, hence the node type MUST be checked
+        if (node is Player player) // Check if the node is a Player
         {
-            player.CallDeferred("Die");
+            if (Global.logsCollected == 0)
+            {
+                player.CallDeferred("Die");
+            }
+            else if (Global.logsCollected > 0)
+            {
+                CallDeferred("DisableShapes");
+                Global.logsCollected = 0;
+                Log.UpdateLogLabel();
+            }
         }
     }
 	public void _on_stomp_sound_finished()

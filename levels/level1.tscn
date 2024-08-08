@@ -249,6 +249,12 @@ shouldMove = true
 [node name="Tomato11" parent="Tomatoes" instance=ExtResource("4_ai60l")]
 position = Vector2(1462, 36)
 
+[node name="Tomato12" parent="Tomatoes" instance=ExtResource("4_ai60l")]
+position = Vector2(274, 116)
+speed = 20
+leftBound = 542
+rightBound = 550
+
 [node name="Logs" type="Node" parent="."]
 
 [node name="Log3" parent="Logs" instance=ExtResource("6_56pog")]
@@ -262,6 +268,9 @@ position = Vector2(1269, 104)
 
 [node name="Log7" parent="Logs" instance=ExtResource("6_56pog")]
 position = Vector2(1333, 104)
+
+[node name="Log4" parent="Logs" instance=ExtResource("6_56pog")]
+position = Vector2(255, 120)
 
 [node name="Gopher" parent="." instance=ExtResource("11_1f3xt")]
 position = Vector2(227, 125)
