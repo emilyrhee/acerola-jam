@@ -10,13 +10,10 @@ public partial class Log : AnimatedSprite2D
 	}
 
 	public void _on_log_area_body_entered(Node2D body) {
-		if (body is Player player) // argument MUST be a Node2D, hence the node type MUST be checked
-		{
-            Global.logsCollected++;
-            logLabel.Clear();
-            logLabel.AddText(Global.logsCollected.ToString());  
-			QueueFree();
-		}
+        Global.logsCollected++;
+        logLabel.Clear();
+        logLabel.AddText(Global.logsCollected.ToString());  
+        QueueFree();
 	}
 	public override void _Process(double delta)
 	{
