@@ -11,10 +11,14 @@ public partial class Player : CharacterBody2D
     private AnimatedSprite2D animatedSprite;
     private float defaultGravity;
     private bool isJumping = false;
+    private Area2D stompArea;
+    private Area2D deathArea;
 
     public override void _Ready()
     {
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        stompArea = GetNode<Area2D>("Area2D");
+        deathArea = GetNode<Area2D>("DeathArea");
         defaultGravity = gravity;
     }
 
@@ -50,7 +54,26 @@ public partial class Player : CharacterBody2D
         Global.logsCollected = 0;
         GetTree().ReloadCurrentScene();
     }
+    private void _on_area_2d_body_entered(Node2D node)
+    {
+        if (node is Tomato tomato && Velocity.Y > -1)
+        {
+            Vector2 newVelocity = Velocity;
+            newVelocity.Y = jumpVelocity;
+            Velocity = newVelocity;
 
+            tomato.stompSound.Play();
+            tomato.shape.QueueFree();
+            tomato.sprite.QueueFree();
+        }
+    }
+    private void _on_death_area_body_entered(Node2D node)
+    {
+        if (node is Tomato)
+        {
+            CallDeferred("Die");
+        }
+    }
     public static void Jump(ref Vector2 velocity)
     {
         velocity.Y = jumpVelocity;

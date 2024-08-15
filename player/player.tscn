@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkug78q76d0t8"]
+[gd_scene load_steps=12 format=3 uid="uid://dkug78q76d0t8"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_6onmw"]
 [ext_resource type="Texture2D" uid="uid://db8p5hufba3n2" path="res://assets/images/player.png" id="1_qgs0y"]
@@ -63,7 +63,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojn0o"]
-size = Vector2(11, 24)
+size = Vector2(6, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0x7p"]
+size = Vector2(8, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v5ejq"]
+radius = 4.0
+height = 25.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -77,7 +84,7 @@ animation = &"nod"
 frame_progress = 0.395959
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24.5, 36)
+position = Vector2(25, 36)
 shape = SubResource("RectangleShape2D_ojn0o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -89,3 +96,24 @@ position_smoothing_enabled = true
 position_smoothing_speed = 11.0
 rotation_smoothing_speed = 50.0
 drag_bottom_margin = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(25, 48.5)
+shape = SubResource("RectangleShape2D_x0x7p")
+debug_color = Color(0, 0.0823529, 0.101961, 0.419608)
+
+[node name="DeathArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="DeathShape" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(25, 35.5)
+shape = SubResource("CapsuleShape2D_v5ejq")
+debug_color = Color(0.878431, 0.0352941, 0.054902, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
