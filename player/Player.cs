@@ -70,10 +70,7 @@ public partial class Player : CharacterBody2D
     }
     private void _on_death_area_body_entered(Node2D node)
     {
-        if (node is Tomato)
-        {
-            CallDeferred("Die");
-        }
+        CallDeferred("Die");
     }
     public static void Jump(ref Vector2 velocity)
     {
