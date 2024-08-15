@@ -26,7 +26,7 @@ public partial class CutsceneArea : Area2D
     {
         if (body is Player) // argument MUST be a Node2D, hence the node type MUST be checked
         {
-            dialog.AddText("Hello! How are you? (space to continue)");
+            dialog.AddText("Hello! How are you?");
 
             Player.speed = 0f;
 
