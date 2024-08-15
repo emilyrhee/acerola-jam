@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://w48av2wte7b3"]
+[gd_scene load_steps=2 format=3 uid="uid://w48av2wte7b3"]
 
 [ext_resource type="Texture2D" uid="uid://bolfei85sujfw" path="res://assets/images/log.png" id="1_xtban"]
-[ext_resource type="Script" path="res://collectables/Count.cs" id="2_oofwr"]
 
 [node name="Logcount" type="Control"]
 layout_mode = 3
@@ -15,11 +14,3 @@ grow_vertical = 2
 position = Vector2(8, 8)
 texture = ExtResource("1_xtban")
 hframes = 2
-
-[node name="Count" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 20.0
-offset_top = -1.0
-offset_right = 45.0
-offset_bottom = 23.0
-script = ExtResource("2_oofwr")
