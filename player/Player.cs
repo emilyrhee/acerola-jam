@@ -56,12 +56,13 @@ public partial class Player : CharacterBody2D
     }
     private void _on_area_2d_body_entered(Node2D node)
     {
-        if (node is Tomato tomato && Velocity.Y > -1)
+        if (Velocity.Y > -1)
         {
             Vector2 newVelocity = Velocity;
             newVelocity.Y = jumpVelocity;
             Velocity = newVelocity;
 
+            Tomato tomato = node as Tomato;
             tomato.stompSound.Play();
             tomato.shape.QueueFree();
             tomato.sprite.QueueFree();
