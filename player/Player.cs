@@ -54,7 +54,7 @@ public partial class Player : CharacterBody2D
         Global.logsCollected = 0;
         GetTree().ReloadCurrentScene();
     }
-    private void _on_area_2d_body_entered(Node2D node)
+    private void _on_area_2d_body_entered(Node2D enemy)
     {
         if (Velocity.Y > -1)
         {
@@ -62,15 +62,23 @@ public partial class Player : CharacterBody2D
             newVelocity.Y = jumpVelocity;
             Velocity = newVelocity;
 
-            Tomato tomato = node as Tomato;
+            Tomato tomato = enemy as Tomato;
             tomato.stompSound.Play();
             tomato.shape.QueueFree();
             tomato.sprite.QueueFree();
         }
     }
-    private void _on_death_area_body_entered(Node2D node)
+    private void _on_death_area_body_entered(Node2D enemy)
     {
-        CallDeferred("Die");
+        if (Global.logsCollected > 0)
+        {
+            Global.logsCollected = 0;
+            Log.UpdateLogLabel();
+        }
+        else
+        {
+            CallDeferred("Die");
+        }
     }
     public static void Jump(ref Vector2 velocity)
     {
