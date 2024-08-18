@@ -13,6 +13,8 @@ public partial class Player : CharacterBody2D
     private bool isJumping = false;
     private Area2D stompArea;
     private Area2D deathArea;
+    private int flashCount = 0;
+    private Timer flashTimer;
 
     public override void _Ready()
     {
@@ -20,7 +22,8 @@ public partial class Player : CharacterBody2D
         stompArea = GetNode<Area2D>("Area2D");
         deathArea = GetNode<Area2D>("DeathArea");
         defaultGravity = gravity;
-    }
+        flashTimer = GetNode<Timer>("Timer");
+   }
 
     private void Animate()
     {
@@ -68,16 +71,48 @@ public partial class Player : CharacterBody2D
             tomato.sprite.QueueFree();
         }
     }
+    private void ToggleOpacity()
+    {
+        Color modulateColor = animatedSprite.Modulate;
+        modulateColor.A = modulateColor.A == 1.0f ? 0.3f : 1.0f;
+        animatedSprite.Modulate = modulateColor;
+    }
+
+    private void StartFlashing()
+    {
+        flashTimer.WaitTime = 0.2f;
+        flashTimer.Start();
+        ToggleOpacity();
+    }
     private void _on_death_area_body_entered(Node2D enemy)
     {
         if (Global.logsCollected > 0)
         {
             Global.logsCollected = 0;
             Log.UpdateLogLabel();
+
+            flashCount = 0;
+            StartFlashing();
         }
         else
         {
             CallDeferred("Die");
+        }
+    }
+
+    private void _on_timer_timeout()
+    {
+        flashCount++;
+        if (flashCount < 6) // 3 flashes, 2 transitions per flash
+        {
+            ToggleOpacity();
+            flashTimer.Start();
+        }
+        else
+        {
+            Color modulateColor = animatedSprite.Modulate;
+            modulateColor.A = 1.0f;
+            animatedSprite.Modulate = modulateColor;
         }
     }
     public static void Jump(ref Vector2 velocity)
