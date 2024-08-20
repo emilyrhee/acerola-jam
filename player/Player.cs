@@ -57,6 +57,14 @@ public partial class Player : CharacterBody2D
         Global.logsCollected = 0;
         GetTree().ReloadCurrentScene();
     }
+
+    public void JumpWithVelocity(float jumpVelocity)
+    {
+        Vector2 velocity = Velocity;
+        velocity.Y = jumpVelocity;
+        Velocity = velocity;
+    }
+
     private void _on_area_2d_body_entered(Node2D enemy)
     {
         if (Velocity.Y > -1)
@@ -131,19 +139,19 @@ public partial class Player : CharacterBody2D
         }
 
         // Jump logic
-        if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+        if (Input.IsActionJustPressed("jump") && IsOnFloor())
         {
             Jump(ref velocity);
             isJumping = true;
         }
 
-        if (isJumping && Input.IsActionPressed("ui_accept"))
+        if (isJumping && Input.IsActionPressed("jump"))
         {
             // Apply an upward force while the jump key is held
             velocity.Y += jumpVelocity * 0.04f;
         }
 
-        if (Input.IsActionJustReleased("ui_accept"))
+        if (Input.IsActionJustReleased("jump"))
         {
             isJumping = false;
         }

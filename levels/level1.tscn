@@ -177,7 +177,7 @@ offset_bottom = -617.0
 scale = Vector2(2, 2)
 
 [node name="Foreman" parent="." instance=ExtResource("7_la0y8")]
-position = Vector2(1657, 64)
+position = Vector2(1679, 64)
 
 [node name="CutsceneArea2" type="Area2D" parent="Foreman"]
 collision_layer = 64
