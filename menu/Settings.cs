@@ -15,7 +15,20 @@ public partial class Settings : Node2D
             Visible = !Visible;
         }
     }
+    
+    private int musicBusIndex = AudioServer.GetBusIndex("Master");
 
+    public void _on_h_slider_value_changed(float value)
+    {
+        float volumeDb = Mathf.Lerp(-80, 0, value / 100.0f);
+        AudioServer.SetBusVolumeDb(musicBusIndex, volumeDb);
+        GD.Print($"Slider value: {value}, Bus VolumeDb: {volumeDb}");
+    }
+
+    private void _on_mute_button_pressed()
+    {
+        AudioServer.SetBusMute(musicBusIndex, !AudioServer.IsBusMute(musicBusIndex));
+    }
     public override void _Process(double delta)
     {
     }

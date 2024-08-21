@@ -3,10 +3,19 @@
 [ext_resource type="Script" path="res://menu/Settings.cs" id="1_tb6fi"]
 
 [node name="Settings" type="Node2D"]
-visible = false
 script = ExtResource("1_tb6fi")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 90.0
-offset_bottom = 40.0
-text = "volume"
+[node name="MuteButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "mute"
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 61.0
+offset_top = 7.0
+offset_right = 219.0
+offset_bottom = 23.0
+value = 100.0
+
+[connection signal="pressed" from="MuteButton" to="." method="_on_mute_button_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
