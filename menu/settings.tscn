@@ -17,5 +17,13 @@ offset_right = 219.0
 offset_bottom = 23.0
 value = 100.0
 
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 83.0
+offset_top = 69.0
+offset_right = 120.0
+offset_bottom = 100.0
+text = "exit"
+
 [connection signal="pressed" from="MuteButton" to="." method="_on_mute_button_pressed"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

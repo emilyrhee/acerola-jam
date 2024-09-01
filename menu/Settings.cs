@@ -29,6 +29,10 @@ public partial class Settings : Node2D
     {
         AudioServer.SetBusMute(musicBusIndex, !AudioServer.IsBusMute(musicBusIndex));
     }
+    private void _on_exit_button_pressed()
+    {
+        GetTree().Quit();
+    }
     public override void _Process(double delta)
     {
     }
